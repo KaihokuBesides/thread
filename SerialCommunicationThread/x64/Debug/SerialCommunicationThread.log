@@ -1,12 +1,2 @@
-﻿  SerialCommunicationThread.cpp
-  SerialCommunicationThreadDlg.cpp
-  コードを生成中...
-SerialCommunicationThreadDlg.obj : error LNK2005: "int iOpenSendPortNum" (?iOpenSendPortNum@@3HA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "int iOpenRecvPortNum" (?iOpenRecvPortNum@@3HA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "char * sOpenSendPortName" (?sOpenSendPortName@@3PADA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "char * sOpenRecvPortName" (?sOpenRecvPortName@@3PADA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "char * sInputStr" (?sInputStr@@3PADA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "char * sRecvStr" (?sRecvStr@@3PADA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "bool isInputEnd" (?isInputEnd@@3_NA) は既に SerialCommunication.obj で定義されています。
-SerialCommunicationThreadDlg.obj : error LNK2005: "bool isFuncError" (?isFuncError@@3_NA) は既に SerialCommunication.obj で定義されています。
-C:\研修\21.通信制御\SerialCommunicationThread\x64\Debug\SerialCommunicationThread.exe : fatal error LNK1169: 1 つ以上の複数回定義されているシンボルが見つかりました。
+﻿  SerialCommunicationThreadDlg.cpp
+  SerialCommunicationThread.vcxproj -> C:\thread\x64\Debug\SerialCommunicationThread.exe

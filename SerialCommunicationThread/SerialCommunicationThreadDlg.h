@@ -4,7 +4,6 @@
 
 #pragma once
 
-
 // CSerialCommunicationThreadDlg ダイアログ
 class CSerialCommunicationThreadDlg : public CDialogEx
 {
@@ -20,7 +19,6 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV サポート
 
-
 // 実装
 protected:
 	HICON m_hIcon;
@@ -35,10 +33,9 @@ protected:
 public:
 	//---------------------------------関数---------------------------------
 	//---------------------------------関数---------------------------------
-
+	void MainThreadFunc();
 
 	//---------------------------------変数---------------------------------
-	//CComPort comport1;
 
 private:
 	HANDLE hMainThread;
@@ -54,4 +51,5 @@ public:
 	afx_msg void OnBnClickedConnection();
 	afx_msg void OnBnClickedDisconnection();
 	afx_msg void OnBnClickedSend();
+	CString sSendMessage;
 };

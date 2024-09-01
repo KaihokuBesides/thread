@@ -1,32 +1,27 @@
 ﻿
 // SerialCommunicationThreadDlg.cpp : 実装ファイル
 //
+#define _CRT_SECURE_NO_WARNINGS
+
 
 #include "pch.h"
 #include "framework.h"
 #include "SerialCommunicationThread.h"
 #include "SerialCommunicationThreadDlg.h"
 #include "SerialCommunication.h"
-
+#include <thread>
+#include <string>
 #include "afxdialogex.h"
 #include <windows.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
+
 #endif
 
 
-//メインスレッド関数
-DWORD WINAPI ThraedMainFunc(LPVOID lpParam);
 
-
-//ポートの設定を行う関数
-DWORD WINAPI ThraedPortSetting(LPVOID lpParam);
-
-//データの受信を行う関数
-DWORD WINAPI ThraedRecvData(LPVOID lpParam);
-
-
+CComPort comport;
 
 // アプリケーションのバージョン情報に使われる CAboutDlg ダイアログ
 
@@ -72,23 +67,17 @@ CSerialCommunicationThreadDlg::CSerialCommunicationThreadDlg(CWnd* pParent /*=nu
 	, hProcessing(NULL)
 	, dwMainThreadId(0)
 	, dwProcessingThreadId(0)
+	, sSendMessage(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-	//メインスレッドを起動
-	hMainThread = CreateThread(
-		NULL,
-		0,
-		ThraedMainFunc,
-		NULL,
-		0,
-		&dwMainThreadId
-	);
 }
 
 void CSerialCommunicationThreadDlg::DoDataExchange(CDataExchange* pDX)
 {
+
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, sSendMessage);
 }
 
 BEGIN_MESSAGE_MAP(CSerialCommunicationThreadDlg, CDialogEx)
@@ -135,7 +124,6 @@ BOOL CSerialCommunicationThreadDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 小さいアイコンの設定
 
 	// TODO: 初期化をここに追加します。
-
 
 	return TRUE;  // フォーカスをコントロールに設定した場合を除き、TRUE を返します。
 }
@@ -197,7 +185,12 @@ HCURSOR CSerialCommunicationThreadDlg::OnQueryDragIcon()
 
 void CSerialCommunicationThreadDlg::OnBnClickedOk()
 {
+	UpdateData();
+
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
+	std::thread MainThread(&CSerialCommunicationThreadDlg::MainThreadFunc, this);
+	MainThread.detach();
+
 }
 
 
@@ -209,14 +202,6 @@ void CSerialCommunicationThreadDlg::OnBnClickedCancel()
 
 void CSerialCommunicationThreadDlg::OnBnClickedConnection()
 {
-	//スレッドを生成
-	hProcessing = CreateThread(
-		NULL,
-		0,
-		ThraedRecvData,
-		NULL,
-		0,
-		&dwProcessingThreadId);
 
 }
 
@@ -232,25 +217,22 @@ void CSerialCommunicationThreadDlg::OnBnClickedSend()
 	// TODO: ここにコントロール通知ハンドラー コードを追加します。
 }
 
-DWORD WINAPI ThraedMainFunc(LPVOID lpParam)
+void CSerialCommunicationThreadDlg::MainThreadFunc()
 {
-	return 0;
+	comport.CheckOpenPort(1, 2);
+
+	comport.Open("COM1", "COM2");
+
+	char* pChar = new char[sSendMessage.GetLength() + 1];
+	char* recvChar = "";
+	strcpy(pChar, sSendMessage);
+
+	comport.Send(pChar);
+
+	comport.Recv(recvChar);
+
+	delete[] pChar; // newした場合は忘れずに削除
+
 }
 
-
-DWORD WINAPI ThraedPortSetting(LPVOID lpParam)
-{
-	return 0;
-}
-
-
-DWORD WINAPI ThraedRecvData(LPVOID lpParam)
-{
-	int i;
-	for (i = 0; i < 100; i++) {
-		printf("ThreadFunc %d\n", i);
-		Sleep(50);
-	}
-	return 0;
-}
 

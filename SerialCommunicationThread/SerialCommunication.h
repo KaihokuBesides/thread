@@ -91,25 +91,25 @@ void OutputData();
 //-------------------------------------------------外部変数-------------------------------------------------
 
 //送信側のポートの数字
-int iOpenSendPortNum;
+extern int iOpenSendPortNum;
 
 //受信側のポートの数字
-int iOpenRecvPortNum;
+extern int iOpenRecvPortNum;
 
-char sOpenSendPortName[MAX_ELEMENTS];
-char sOpenRecvPortName[MAX_ELEMENTS];
+extern char sOpenSendPortName[MAX_ELEMENTS];
+extern char sOpenRecvPortName[MAX_ELEMENTS];
 
 //入力された文字列
-char sInputStr[MAX_ELEMENTS];
+extern char sInputStr[MAX_ELEMENTS];
 
 //受信する文字列
-char sRecvStr[MAX_ELEMENTS];
+extern char sRecvStr[MAX_ELEMENTS];
 
 //プログラムを終了するかのフラグ
-bool isInputEnd;
+extern bool isInputEnd;
 
 //外部関数の戻り値がエラーであるか エラーの場合はtrue
-bool isFuncError;
+extern bool isFuncError;
 
 
 //------------------------------------------------------------------------------------------------------

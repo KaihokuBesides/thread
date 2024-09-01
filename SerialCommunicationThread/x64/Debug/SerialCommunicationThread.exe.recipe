@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\研修\21.通信制御\SerialCommunicationThread\x64\Debug\SerialCommunicationThread.exe</FullPath>
+      <FullPath>C:\thread\x64\Debug\SerialCommunicationThread.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

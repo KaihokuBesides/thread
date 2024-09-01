@@ -13,6 +13,29 @@
 
 using namespace std;
 
+
+//送信側のポートの数字
+int iOpenSendPortNum = 0;
+
+//受信側のポートの数字
+int iOpenRecvPortNum = 0;
+
+char sOpenSendPortName[MAX_ELEMENTS];
+char sOpenRecvPortName[MAX_ELEMENTS];
+
+//入力された文字列
+char sInputStr[MAX_ELEMENTS];
+
+//受信する文字列
+char sRecvStr[MAX_ELEMENTS];
+
+//プログラムを終了するかのフラグ
+bool isInputEnd;
+
+//外部関数の戻り値がエラーであるか エラーの場合はtrue
+bool isFuncError;
+
+
 CComPort::CComPort(void)
 	: m_hSendPort(NULL)
 	, m_hRecvPort(NULL)

@@ -1,4 +1,4 @@
-C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\pch.cpp;C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\x64\Debug\pch.obj
-C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\SerialCommunication.cpp;C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\x64\Debug\SerialCommunication.obj
-C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\SerialCommunicationThread.cpp;C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\x64\Debug\SerialCommunicationThread.obj
-C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\SerialCommunicationThreadDlg.cpp;C:\研修\21.通信制御\SerialCommunicationThread\SerialCommunicationThread\x64\Debug\SerialCommunicationThreadDlg.obj
+C:\thread\SerialCommunicationThread\pch.cpp;C:\thread\SerialCommunicationThread\x64\Debug\pch.obj
+C:\thread\SerialCommunicationThread\SerialCommunication.cpp;C:\thread\SerialCommunicationThread\x64\Debug\SerialCommunication.obj
+C:\thread\SerialCommunicationThread\SerialCommunicationThread.cpp;C:\thread\SerialCommunicationThread\x64\Debug\SerialCommunicationThread.obj
+C:\thread\SerialCommunicationThread\SerialCommunicationThreadDlg.cpp;C:\thread\SerialCommunicationThread\x64\Debug\SerialCommunicationThreadDlg.obj
